@@ -1,27 +1,21 @@
 <template>
   <div>
     <div>
-      <NavBar curr="Home" />
+      <NavBar curr="Contact" />
     </div>
-
-    This is home page
+    This is contact page
   </div>
 </template>
 
 <script>
-/* eslint-disable */
 import NavBar from "@/components/NavBar.vue";
+/* eslint-disable */
 export default {
-  name: "Home",
   components: {
     NavBar
-  },
-  data: () => {
-    return {};
-  },
-  computed: {}
+  }
 };
 </script>
 
-<style scoped>
+<style>
 </style>
