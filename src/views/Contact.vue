@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div id="nav">
       <NavBar curr="Contact" />
     </div>
     This is contact page

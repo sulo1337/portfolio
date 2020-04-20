@@ -1,7 +1,11 @@
 <template>
-  <div id="app" :class="{ dark: dark }" class="main">
+  <div id="app" :class="{ dark: dark }">
     <div id="toggleDark">
-      <button @click="toggleDarkMode">Mode</button>
+      <img
+        src="https://img.icons8.com/pastel-glyph/64/000000/light.png"
+        @click="toggleDarkMode"
+        style="display: inline-block"
+      />
     </div>
     <router-view />
   </div>
@@ -24,27 +28,63 @@ export default {
 };
 </script>
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap");
+#app  { 
+    animation: fadeInAnimation ease 1s; 
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+} 
+  
+@keyframes fadeInAnimation { 
+    0% {
+        transform: scale(0);
+        opacity: 0; 
+
+    } 
+    100% { 
+      transform: scale(1) rotate(-360deg);
+        opacity: 1; 
+     } 
+} 
+*{
+  margin: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'IBM Plex Serif', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
-}
-
-.main {
   height: 100vh;
   background-color: #ffffff;
   color: #000000;
+  position: relative;
 }
+
 .dark {
   filter: invert(90%);
-  height: 100vh;
 }
 
 #toggleDark{
+  display: inline-block;
   position: absolute;
-  right: 0%;
-  top: 0%;
+  z-index: 1000;
+  height: auto;
+  right: 1%;
+  transform: scale(0.7);
+  transition: transform 0.2s ease-in-out;
+}
+
+#toggleDark:hover{
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+}
+
+#nav{
+  text-align: left;
+  position: relative;
+  padding-top: 20px;
+  padding-left: 20px;
 }
 </style>

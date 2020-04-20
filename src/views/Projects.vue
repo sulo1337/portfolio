@@ -1,7 +1,7 @@
 /* eslint-disable */
 <template>
   <div>
-    <div>
+    <div id="nav">
       <NavBar curr="Projects" />
     </div>
     This is projects page.

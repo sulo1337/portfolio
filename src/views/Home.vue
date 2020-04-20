@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div>
+  <div id="home">
+    <div id="nav">
       <NavBar curr="Home" />
     </div>
 
@@ -24,4 +24,7 @@ export default {
 </script>
 
 <style scoped>
+#home {
+  height: 100vh;
+}
 </style>

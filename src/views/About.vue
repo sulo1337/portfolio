@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div>
+    <div id="nav">
       <NavBar curr="About" />
     </div>
     This is about page
