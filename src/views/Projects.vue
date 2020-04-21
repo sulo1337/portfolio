@@ -4,7 +4,7 @@
     <div id="nav">
       <NavBar curr="Projects" />
     </div>
-    This is projects page.
+    This is projects page. (Under construction)
   </div>
 </template>
 

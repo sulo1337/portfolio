@@ -3,7 +3,7 @@
     <div id="nav">
       <NavBar curr="About" />
     </div>
-    This is about page
+    This is about page. Under construction.
   </div>
 </template>
 

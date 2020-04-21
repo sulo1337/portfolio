@@ -30,7 +30,9 @@
           :class="{ darkWrapper: dark }"
         ></div>
         <div class="parallax__layer intro">
-          <div class="animation-container">
+          <div class="sun" v-if="!dark"></div>
+          <div class="moon" v-if="dark"></div>
+          <div class="animation-container" :class="{ darkIntro: dark }">
             <Intro />
           </div>
         </div>
@@ -75,14 +77,13 @@ export default {
 }
 
 #home {
-  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  background: url("../assets/home/light-background.png");
   width: 100%;
   height: 100%;
 }
 
 .dark {
-background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%) !important;
- background-blend-mode: multiply;
+background: url("../assets/home/dark-background.jpg") !important;
  }
 
 .wrapper {
@@ -113,41 +114,42 @@ background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), l
 }
 
 .layer0{
-  background: url('../assets/layer_0.png') no-repeat center;
+  background: url('../assets/home/layer_0.png') no-repeat center;
   background-size: cover;
   transform: translateZ(-600px) scale(3);
   z-index: 1;
 }
 
 .layer1{
-  background: url('../assets/layer_1.png') no-repeat center;
+  background: url('../assets/home/layer_1.png') no-repeat center;
   background-size: cover;
   transform: translateZ(-525px) scale(2.75);
   z-index: 2;
 }
 
 .layer2{
-  background: url('../assets/layer_2.png') no-repeat center;
+  background: url('../assets/home/layer_2.png') no-repeat center;
   background-size: cover;
   transform: translateZ(-400px) scale(2.333333333333);
   z-index: 3;
 }
 
 .layer3{
-  background: url('../assets/layer_3.png') no-repeat center;
+  background: url('../assets/home/layer_3.png') no-repeat center;
   background-size: cover;
   transform: translateZ(-250px) scale(1.8333333333333);
   z-index: 4;
 }
 
 .layer4{
-  background: url('../assets/layer_4.png') no-repeat center;
+  background: url('../assets/home/layer_4.png') no-repeat center;
   background-size: cover;
   transform: translateZ(-123px) scale(1.416777777);
   z-index: 5;
 }
 
 .animation-container{
+  transition: all 0.5s ease;
   position: absolute;
   left: 40%;
   top: 40%;
@@ -168,12 +170,40 @@ background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), l
 
 .darkWrapper{
   transition: all 0.5s ease;
-  filter: brightness(50%);
+  filter: brightness(70%);
 }
 
 .darkContent{
   transition: all 0.5s ease;
-  background: #1f2033;
+  background: #2b2d48;
+}
+
+.darkIntro{
+  transition: all 0.5s ease;
+  filter: invert(1);
+}
+
+.sun{
+  position: absolute;
+  left: 60%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  width: 17rem;
+  height: 25rem;
+  background: url("../assets/home/sun.png") no-repeat;
+  background-size: 50%;
+}
+
+.moon{
+  position: absolute;
+  left: 67%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  width: 17rem;
+  height: 25rem;
+  background: url("../assets/home/moon.png") no-repeat;
+  background-size: 20%;
+  filter: brightness(1.1);
 }
 
 </style>

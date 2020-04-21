@@ -4,9 +4,9 @@
       <div id="flip">
         <div><div>Hello!</div></div>
         <div><div>Hola!</div></div>
-        <div><div>नमस्कार</div></div>
+        <div><div>नमस्ते</div></div>
       </div>
-      I'm Sulochan.
+      I'm Sulochan Acharya.
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 @import url("https://fonts.googleapis.com/css?family=Roboto:700");
 body {
   margin: 0px;
@@ -28,7 +28,7 @@ body {
 }
 
 #container {
-  color: #999;
+  color: #000;
   text-transform: uppercase;
   font-size: 36px;
   font-weight: bold;

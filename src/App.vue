@@ -38,12 +38,12 @@ export default {
   
 @keyframes fadeInAnimation { 
     0% {
-        transform: scale(0);
+        transform: scale(0) translateZ(-600px);
         opacity: 0; 
 
     } 
     100% { 
-      transform: scale(1) rotate(-360deg);
+      transform: scale(1) translateZ(0);
         opacity: 1; 
      } 
 } 
