@@ -41,7 +41,7 @@
         class="parallax__group info-container"
         :class="{ darkContent: dark }"
       >
-        Hello
+        More content here
       </div>
     </div>
   </div>
