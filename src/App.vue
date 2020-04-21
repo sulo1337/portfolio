@@ -5,6 +5,7 @@
         src="https://img.icons8.com/pastel-glyph/64/000000/light.png"
         @click="toggleDarkMode"
         style="display: inline-block"
+        :class="{ darkBulb: dark }"
       />
     </div>
     <router-view />
@@ -61,10 +62,6 @@ export default {
   position: relative;
 }
 
-.dark {
-  filter: invert(90%);
-}
-
 #toggleDark{
   display: inline-block;
   position: absolute;
@@ -83,8 +80,15 @@ export default {
 
 #nav{
   text-align: left;
-  position: relative;
+  position: absolute;
   padding-top: 20px;
   padding-left: 20px;
+  width: 100vw;
+  background-color: transparent;
+  z-index: 999;
+}
+
+.darkBulb{
+  filter: invert(1);
 }
 </style>

@@ -2,8 +2,8 @@
   <div id="nav-button">
     <div @click="route" :class="{ current: curr == path }" class="wrapper">
       <h3 class="placeholder heading">{{ text }}</h3>
-      <h3 class="mainText heading">{{ text }}</h3>
-      <h3 class="hiddenText heading">{{ text }}</h3>
+      <h3 class="mainText heading" :class="{ dark: dark }">{{ text }}</h3>
+      <h3 class="hiddenText heading" :class="{ dark: dark }">{{ text }}</h3>
     </div>
   </div>
 </template>
@@ -22,14 +22,22 @@ export default {
         this.$router.push({ name: this.path });
       }
     }
+  },
+  computed: {
+    dark() {
+      return this.$store.state.isDark;
+    }
   }
 };
 </script>
 
 <style>
+.dark {
+  color: #fcf75e;
+}
 #nav-button {
   display: inline-block;
-  color: #1c98c7;
+  color: #e42600;
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -44,6 +52,10 @@ export default {
 
 .current {
   color: #09213f;
+}
+
+.current .dark {
+  color: #999;
 }
 
 .wrapper {
