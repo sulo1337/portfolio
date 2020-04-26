@@ -47,6 +47,7 @@ export default {
 }
 
 .heading {
+  user-select: none;
   transition: all 0.3s ease;
 }
 
