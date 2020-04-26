@@ -4,7 +4,7 @@
     <div id="nav">
       <NavBar curr="Projects" />
     </div>
-    <div class="wrapper">
+    <div class="projects__wrapper">
       <h1 class="heading">Here are my projects</h1>
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide class="slide slide-1">Project 1</swiper-slide>
@@ -76,7 +76,7 @@ export default {
  background-blend-mode: multiply;
   color: white;
 }
-.wrapper{
+.projects__wrapper{
   height: 100vh;
   width: 100vw;
   display: flex;

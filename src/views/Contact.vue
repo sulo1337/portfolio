@@ -3,7 +3,9 @@
     <div id="nav">
       <NavBar curr="Contact" />
     </div>
-    This is contact page. Under construction.
+    <div class="contact__wrapper">
+      This is contact page. Under construction.
+    </div>
   </div>
 </template>
 
@@ -22,7 +24,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 #contact {
   background: url("../assets/home/light-background.png");
   width: 100vw;
@@ -38,5 +40,15 @@ export default {
     ) !important;
   background-blend-mode: multiply;
   color: white;
+}
+
+.contact__wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 </style>

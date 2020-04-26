@@ -3,7 +3,7 @@
     <div id="nav">
       <NavBar curr="About" />
     </div>
-    This is about page. Under construction.
+    <div class="about__wrapper">This is about page. Under construction.</div>
   </div>
 </template>
 
@@ -37,5 +37,15 @@ export default {
     ) !important;
   background-blend-mode: multiply;
   color: white;
+}
+
+.about__wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 </style>
