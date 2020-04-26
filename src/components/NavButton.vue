@@ -38,7 +38,7 @@ export default {
 #nav-button {
   display: inline-block;
   color: #e42600;
-  margin-left: 20px;
+  margin-left: 25px;
   margin-right: 20px;
 }
 
