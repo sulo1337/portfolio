@@ -24,6 +24,6 @@ export default {
 </script>
 
 <style>
-#nav-bar {
-}
+/* #nav-bar {
+} */
 </style>

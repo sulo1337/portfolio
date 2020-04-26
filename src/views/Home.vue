@@ -41,7 +41,34 @@
         class="parallax__group info-container"
         :class="{ darkContent: dark }"
       >
-        More content here
+        <div class="info-wrapper">
+          <img src="@/assets/home/mypic.jpg" alt="Sulochan Acharya" />
+          <div class="text-container">
+            <h1>Sulochan Acharya</h1>
+            <h3>Computer Science Senior</h3>
+            <h3>
+              I am a inquisitive, energetic Computer Science student skilled in
+              leadership, with a strong foundation in math, and programming
+              logic. skills with a focus on collaboration, communication,
+              passion, and creativity as a software engineer or web developer.
+              <br />
+              <a href="https://www.linkedin.com/in/sulo1337/" target="_blank"
+                ><ion-icon name="logo-linkedin" class="social"></ion-icon
+              ></a>
+              <a href="https://github.com/sulo1337" target="_blank"
+                ><ion-icon name="logo-github" class="social"></ion-icon
+              ></a>
+              <a
+                href="https://www.facebook.com/sulochan.acharya"
+                target="_blank"
+                ><ion-icon name="logo-facebook" class="social"></ion-icon
+              ></a>
+              <a href="https://www.instagram.com/sulo1337/" target="_blank"
+                ><ion-icon name="logo-instagram" class="social"></ion-icon
+              ></a>
+            </h3>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -109,9 +136,9 @@ background: url("../assets/home/dark-background.jpg") !important;
   bottom: 0;
 }
 
-.layer-1{
+// .layer-1{
 
-}
+// }
 
 .layer0{
   background: url('../assets/home/layer_0.png') no-repeat center;
@@ -159,27 +186,30 @@ background: url("../assets/home/dark-background.jpg") !important;
 }
 
 .info-container{
-  transition: all 0.5s ease;
+  transform: translateZ(0) scale(1);
+  z-index: 8;
   background: #3e4067;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding-top: 75px;
+  color: #f5f5dc;
 }
 
 .darkWrapper{
-  transition: all 0.5s ease;
+
   filter: brightness(70%);
 }
 
 .darkContent{
-  transition: all 0.5s ease;
+
   background: #2b2d48;
 }
 
 .darkIntro{
-  transition: all 0.5s ease;
+
   filter: invert(1);
 }
 
@@ -205,5 +235,86 @@ background: url("../assets/home/dark-background.jpg") !important;
   background-size: 20%;
   filter: brightness(1.1);
 }
+
+.info-wrapper {
+  width: 75%;
+  border-radius: 20px;
+}
+
+.info-wrapper img {
+  width: 70%;
+  margin: 0.5rem 0;
+ border-radius: 50%;
+ border: 3px solid red; 
+}
+
+.info-wrapper h2, .info-wrapper h3{
+  margin-bottom: 1rem;
+}
+
+.text-container{
+  display: block;
+  width: 100%;
+  margin: auto;
+text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.text-container h1 {
+  font-size: 3rem;
+}
+
+.text-container h3:nth-of-type(1){
+  font-weight:200;
+  font-size: 0.75rem;
+}
+
+.text-container h3:nth-of-type(2){
+  font-size: 1.2rem;
+  margin-bottom: 0rem;
+}
+
+@media (min-width: 760px){
+  .info-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 3rem;
+    align-items: center;
+    text-align: center;
+
+    img{
+      position: relative;
+      left: 20%;
+    }
+
+    .text-container{
+      position: relative;
+      right: 20%;
+      width: 75%;
+    }
+  }
+}
+
+a{
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+.social{
+  transform: scale(2.5);
+  margin: 20px;
+  padding: 5px;
+  padding-top: 15px;
+  
+}
+
+.social:hover{
+  transform: scale(3);
+  filter: invert(0.5);
+}
+
 
 </style>

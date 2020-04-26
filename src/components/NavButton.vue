@@ -51,7 +51,7 @@ export default {
 }
 
 .current {
-  color: #09213f;
+  color: #999;
 }
 
 .current .dark {
@@ -75,12 +75,12 @@ export default {
 
 .hiddenText {
   position: absolute;
-  top: 105%;
+  top: -105%;
   filter: brightness(50%);
 }
 
 .wrapper:hover .mainText {
-  top: -105%;
+  top: 105%;
 }
 
 .wrapper:hover .hiddenText {

@@ -20,10 +20,9 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Roboto:700");
 body {
   margin: 0px;
-  font-family: "Roboto";
+  font-family: "IBM Plex Serif", serif;
   text-align: center;
 }
 
