@@ -49,8 +49,9 @@
             <h3>
               I am a inquisitive, energetic Computer Science student skilled in
               leadership, with a strong foundation in math, and programming
-              logic. skills with a focus on collaboration, communication,
-              passion, and creativity as a software engineer or web developer.
+              logic. I am seeking to leverage my skills with a focus on
+              collaboration, communication, passion, and creativity as a
+              software engineer or web developer.
               <br />
               <a href="https://www.linkedin.com/in/sulo1337/" target="_blank"
                 ><ion-icon name="logo-linkedin" class="social"></ion-icon
