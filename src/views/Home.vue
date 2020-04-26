@@ -299,6 +299,7 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 
 a{
   color: white;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a:visited {
@@ -309,7 +310,7 @@ a:visited {
   margin: 20px;
   padding: 5px;
   padding-top: 15px;
-  
+  -webkit-tap-highlight-color: transparent;
 }
 
 .social:hover{

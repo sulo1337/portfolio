@@ -80,6 +80,8 @@ export default {
   right: 1%;
   transform: scale(1);
   transition: transform 0.2s ease-in-out;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #toggleDark:hover{

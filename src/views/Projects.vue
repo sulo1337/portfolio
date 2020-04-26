@@ -86,9 +86,9 @@ export default {
   flex-direction: column;
 }
 
-.heading{
+// .heading{
   
-}
+// }
 
 .slide{
   height: 40vh;

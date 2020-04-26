@@ -62,6 +62,7 @@ export default {
   display: inline-block;
   overflow: hidden;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .placeholder {
