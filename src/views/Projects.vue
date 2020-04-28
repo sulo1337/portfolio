@@ -36,7 +36,7 @@ export default {
     return {
       swiperOption: {
         autoHeight: true,
-        effect: "flip",
+        effect: "cube",
         grabCursor: true,
         loop: true,
         centeredSlides: true,
@@ -92,7 +92,7 @@ export default {
 
 .slide{
   height: 40vh;
-  border-radius: 20px;
+  border-radius: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
