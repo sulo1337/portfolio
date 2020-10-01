@@ -5,7 +5,6 @@
 <script>
 export default {
   components: {},
-  data() {},
   props: {
     src: String
   }

@@ -17,7 +17,7 @@
       >
       </ion-icon>
     </div>
-    <router-view />
+    <router-view :key="$route.path"></router-view>
   </div>
 </template>
 
@@ -40,28 +40,27 @@ export default {
 <style lang="scss">
 // ibm plex
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap");
-#app  { 
-    animation: fadeInAnimation ease 1s; 
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards; 
-} 
-  
-@keyframes fadeInAnimation { 
-    0% {
-        transform: scale(0) translateZ(-600px);
-        opacity: 0; 
+#app {
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
 
-    } 
-    100% { 
-      transform: scale(1) translateZ(0);
-        opacity: 1; 
-     } 
-} 
-*{
+@keyframes fadeInAnimation {
+  0% {
+    transform: scale(0) translateZ(-600px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateZ(0);
+    opacity: 1;
+  }
+}
+* {
   margin: 0;
 }
 #app {
-  font-family: 'IBM Plex Serif', serif;
+  font-family: "IBM Plex Serif", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -72,7 +71,7 @@ export default {
   position: relative;
 }
 
-#toggleDark{
+#toggleDark {
   display: inline-block;
   position: absolute;
   z-index: 1000;
@@ -84,13 +83,13 @@ export default {
   -webkit-tap-highlight-color: transparent;
 }
 
-#toggleDark:hover{
+#toggleDark:hover {
   cursor: pointer;
   transform: scale(1);
   transition: transform 0.2s ease-in-out;
 }
 
-#nav{
+#nav {
   text-align: left;
   position: absolute;
   padding-top: 20px;
@@ -100,11 +99,11 @@ export default {
   z-index: 999;
 }
 
-.darkBulb{
+.darkBulb {
   filter: invert(1);
 }
 
-.dayNight{
+.dayNight {
   padding-top: 20px;
   padding-right: 10px;
   transform: scale(2.5);
