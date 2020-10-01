@@ -38,7 +38,7 @@ export default new Vuex.Store({
       link: "Projectlink4",
       git: "ProjectGit4",
       date: "Projectdate4",
-      tech: ['html', 'css']
+      tech: ['html', 'css', 'npm']
     }],
   },
   mutations: {

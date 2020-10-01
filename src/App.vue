@@ -39,28 +39,29 @@ export default {
 </script>
 <style lang="scss">
 // ibm plex
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap");
-#app {
-  animation: fadeInAnimation ease 1s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
+// @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+// #app {
+//   animation: fadeInAnimation ease 1s;
+//   animation-iteration-count: 1;
+//   animation-fill-mode: forwards;
+// }
 
-@keyframes fadeInAnimation {
-  0% {
-    transform: scale(0) translateZ(-600px);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1) translateZ(0);
-    opacity: 1;
-  }
-}
+// @keyframes fadeInAnimation {
+//   0% {
+//     transform: scale(0) translateZ(-600px);
+//     opacity: 0;
+//   }
+//   100% {
+//     transform: scale(1) translateZ(0);
+//     opacity: 1;
+//   }
+// }
 * {
   margin: 0;
 }
 #app {
-  font-family: "IBM Plex Serif", serif;
+  font-family: "Roboto Slab", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

@@ -26,18 +26,13 @@ export default {
 
 <style lang="scss" scoped>
 #contact {
-  background: url("../assets/home/light-background.png");
+  background: #7ddaf8;
   width: 100vw;
   height: 100vh;
 }
 
 .dark {
-  background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
-    linear-gradient(
-      to top,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(0, 0, 0, 0.25) 200%
-    ) !important;
+  background: #222222 !important;
   background-blend-mode: multiply;
   color: white;
 }

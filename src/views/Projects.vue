@@ -4,8 +4,8 @@
     <div id="nav">
       <NavBar curr="Projects" />
     </div>
-    <div class="projects__wrapper">
-      <swiper class="swiper" :options="swiperOption" effect="fade">
+    <div class="projects__wrapper stage">
+      <swiper class="swiper box bounce-7" :options="swiperOption" effect="fade">
         <swiper-slide
           v-for="project in projects"
           :key="project.id"
@@ -79,24 +79,24 @@ export default {
   data() {
     return {
       swiperOption: {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
         autoHeight: false,
         effect: "cube",
-        grabCursor: false,
+        grabCursor: true,
         loop: true,
         centeredSlides: true,
         pagination: {
           el: ".swiper-pagination",
-          dynamicBullets: true
+          dynamicBullets: true,
+          clickable: true
         },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
+        autoplay: {
+          delay: 1000,
+          disableOnInteraction: true
         }
-
-        // autoplay: {
-        //   delay: 2500,
-        //   disableOnInteraction: true
-        // }
       },
       projects: {}
     };
@@ -114,23 +114,26 @@ export default {
 
 <style scoped lang="scss">
 #projects {
-  background: url("../assets/home/light-background.png");
+  // background: url("../assets/home/light-background.png");
+  background: #7ddaf8;
   width: 100vw;
   height: 100vh;
 }
 
 .dark {
-  background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
-    linear-gradient(
-      to top,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(0, 0, 0, 0.25) 200%
-    ) !important;
-  background-blend-mode: multiply;
+  // background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
+  //   linear-gradient(
+  //     to top,
+  //     rgba(255, 255, 255, 0.4) 0%,
+  //     rgba(0, 0, 0, 0.25) 200%
+  //   ) !important;
+
+  background: #222222 !important;
+  // background-blend-mode: multiply;
   color: white;
   .swiper {
     .slide {
-      background: #000000;
+      background: #263238;
     }
   }
   .slide {
@@ -151,6 +154,7 @@ export default {
   height: 50vh;
   border-radius: 0px;
   box-shadow: 0 0 0 5px gray, 15px 15px black;
+  // text-shadow: 1px 2px 2px rgba(150, 150, 150, 1);
   // display: flex;
   // align-items: center;
   // justify-content: center;
@@ -166,7 +170,7 @@ export default {
   margin: 0 auto;
   padding: 50px;
   .slide {
-    background: whitesmoke;
+    background: #fdfcfa;
   }
 }
 
@@ -199,5 +203,24 @@ export default {
 .buttons {
   display: flex;
   flex-wrap: wrap;
+}
+
+.box {
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+.bounce-7 {
+  animation-name: bounce-7;
+}
+@keyframes bounce-7 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>
