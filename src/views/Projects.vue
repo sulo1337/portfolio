@@ -94,7 +94,7 @@ export default {
           clickable: true
         },
         autoplay: {
-          delay: 1000,
+          delay: 5000,
           disableOnInteraction: true
         }
       },
@@ -160,10 +160,20 @@ export default {
   // justify-content: center;
   color: black;
   overflow: scroll;
+  overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent; /* make scrollbar transparent */
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 .swiper {
   width: 75%;

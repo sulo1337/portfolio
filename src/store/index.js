@@ -14,7 +14,7 @@ export default new Vuex.Store({
       link: "www.google.com",
       git: "ProjectGit4",
       date: "Projectdate1",
-      tech: ['react', 'js', 'nodejs', 'aws', 'mongodb']
+      tech: ['react', 'js', 'nodejs', 'aws', 'mongodb', 'java']
     }, {
       id: 2,
       name: "Project2",

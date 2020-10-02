@@ -70,6 +70,7 @@ export default {
   background-color: #ffffff;
   color: #000000;
   position: relative;
+  overflow: hidden;
 }
 
 #toggleDark {
