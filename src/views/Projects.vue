@@ -56,6 +56,9 @@
         <!-- <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div> -->
       </swiper>
+      <div class="loader" v-if="loading">
+        <HashLoader :color="loaderColor" />
+      </div>
     </div>
   </div>
 </template>
@@ -66,7 +69,7 @@ import "swiper/css/swiper.css";
 import NavBar from "@/components/NavBar.vue";
 import TechLogo from "@/components/TechLogo.vue";
 import LinkButton from "@/components/LinkButton.vue";
-
+import { HashLoader } from "@saeris/vue-spinners";
 /* eslint-disable */
 export default {
   components: {
@@ -74,7 +77,8 @@ export default {
     Swiper,
     SwiperSlide,
     TechLogo,
-    LinkButton
+    LinkButton,
+    HashLoader
   },
   data() {
     return {
@@ -97,17 +101,34 @@ export default {
           delay: 5000,
           disableOnInteraction: true
         }
-      },
-      projects: {}
+      }
     };
   },
   computed: {
     dark() {
       return this.$store.state.isDark;
+    },
+    projects() {
+      console.log(this.loaded);
+      return this.$store.state.projects;
+    },
+    loading() {
+      return this.$store.state.isLoading;
+    },
+    loaderColor() {
+      if (this.$store.state.isDark) {
+        return "#fcf75e";
+      } else {
+        return "#e42600";
+      }
     }
   },
-  created() {
-    this.projects = this.$store.state.projects;
+  beforeMount: async function() {
+    try {
+      await this.$store.dispatch("fetchProjects");
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 </script>
@@ -232,5 +253,9 @@ export default {
   100% {
     transform: scale(1);
   }
+}
+
+.loader {
+  color: white;
 }
 </style>
