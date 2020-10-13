@@ -3,7 +3,7 @@
     <div>
       <NavButton :curr="curr" text="Home" path="Home" />
       <NavButton :curr="curr" text="Projects" path="Projects" />
-      <NavButton :curr="curr" text="About" path="About" />
+      <NavButton :curr="curr" text="Skills" path="Skills" />
       <NavButton :curr="curr" text="Contact" path="Contact" />
     </div>
   </div>

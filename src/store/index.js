@@ -9,20 +9,23 @@ export default new Vuex.Store({
     isDark: false,
     isLoaded: false,
     projects: [],
-    isLoading: true,
+    skills: [],
+    projectLoading: true,
+    skillLoading: true,
   },
   mutations: {
     TOGGLE_DARK_MODE: state => {
       state.isDark = !state.isDark;
     },
     FETCH_PROJECTS: state => {
-      const apiurl = process.env.VUE_APP_APIURL;
+      const apiurl = process.env.VUE_APP_PROJECTURL;
+      console.log(apiurl);
       return new Promise((res, rej) => {
         axios.get(apiurl)
           .then(async response => {
             await setTimeout(() => {
               state.projects = response.data;
-              state.isLoading = false;
+              state.projectLoading = false;
               res();
             }, 2000);
           })
@@ -31,6 +34,22 @@ export default new Vuex.Store({
             rej(err);
           })
       });
+    },
+    FETCH_SKILLS: state => {
+      const apiurl = process.env.VUE_APP_SKILLURL;
+      console.log(apiurl);
+      return new Promise((res, rej) => {
+        axios.get(apiurl)
+          .then(async response => {
+            state.skills = response.data;
+            state.skillLoading = false;
+            res();
+          })
+          .catch(err => {
+            console.log(err);
+            rej(err);
+          })
+      })
     }
   },
   actions: {
@@ -39,6 +58,9 @@ export default new Vuex.Store({
     },
     fetchProjects(context) {
       context.commit("FETCH_PROJECTS")
+    },
+    fetchSkills(context) {
+      context.commit("FETCH_SKILLS");
     }
   },
   getters: {

@@ -244,7 +244,7 @@ export default {
   width: 70%;
   margin: 0.5rem 0;
   border-radius: 50%;
-  box-shadow: 0 0 0 5px #696307;
+  box-shadow: 0 0 0 5px;
 }
 
 .info-wrapper h2,
