@@ -79,9 +79,9 @@ export default {
   background: rgb(43, 45, 72) !important;
   background: linear-gradient(
     0deg,
-    rgba(43, 45, 72, 1) 0%,
-    rgba(25, 4, 62, 1) 69%,
-    rgba(10, 10, 10, 1) 100%
+    rgba(0, 0, 0, 1) 0%,
+    rgba(12, 16, 20, 1) 69%,
+    rgba(0, 0, 0, 1) 100%
   ) !important;
   background-blend-mode: multiply;
   color: white;
@@ -128,7 +128,7 @@ $darken: 10%;
     svg {
       height: 130%;
       width: 130%;
-      transition: 1s;
+      transition: 0.5s;
     }
     svg:hover {
       transform: scale(1.2);

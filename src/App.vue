@@ -5,7 +5,7 @@
         v-if="dark"
         name="sunny-outline"
         @click="toggleDarkMode"
-        style="filter: invert(1);"
+        style="filter: invert(0);"
         class="dayNight"
       >
       </ion-icon>
@@ -102,7 +102,7 @@ export default {
 }
 
 .darkBulb {
-  filter: invert(1);
+  filter: invert(0);
 }
 
 .dayNight {

@@ -26,7 +26,7 @@ export default new Vuex.Store({
             await setTimeout(() => {
               state.projects = response.data;
               state.projectLoading = false;
-              res();
+              res(response.data);
             }, 2000);
           })
           .catch(err => {

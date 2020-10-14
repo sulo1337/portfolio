@@ -37,12 +37,12 @@ export default {
 
 <style lang="scss">
 .dark {
-  color: #fcf75e;
+  color: #fcf75e !important;
 }
 #nav-button {
   background: transparent !important;
   display: inline-block;
-  color: #e42600;
+  color: #fd3838;
   margin-left: 25px;
   margin-right: 20px;
 }
@@ -61,7 +61,7 @@ export default {
 }
 
 .current .dark {
-  color: #fff;
+  color: #fff !important;
 }
 
 .wrapper {
@@ -94,16 +94,16 @@ export default {
   top: 0px;
 }
 
-// Animate the size, outside
-.pulse:hover,
-.pulse:focus {
-  animation: pulse 1s;
-  box-shadow: 0 0 0 2em rgba(#fff, 0);
-}
+// // Animate the size, outside
+// .pulse:hover,
+// .pulse:focus {
+//   animation: pulse 1s;
+//   box-shadow: 0 0 0 2em rgba(#fff, 0);
+// }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 adjust-hue(#dc143c, 45deg);
-  }
-}
+// @keyframes pulse {
+//   0% {
+//     box-shadow: 0 0 0 0 adjust-hue(#dc143c, 45deg);
+//   }
+// }
 </style>
