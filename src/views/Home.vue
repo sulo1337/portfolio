@@ -43,10 +43,11 @@
       >
         <div class="info-wrapper">
           <img src="@/assets/home/mypic.jpg" alt="Sulochan Acharya" />
+
           <div class="text-container">
-            <h1>Sulochan Acharya</h1>
-            <h3>Computer Science Senior</h3>
-            <h3 class="introduction">
+            <h1 class="text">Sulochan Acharya</h1>
+            <h3 class="text">Computer Science Senior</h3>
+            <h3 class="introduction text">
               I am a inquisitive, energetic Computer Science student skilled in
               leadership, with a strong foundation in math, and programming
               logic. I am seeking to leverage my skills with a focus on
@@ -105,14 +106,25 @@ export default {
 
 #home {
   // background: url("../assets/home/light-background.png");
-  background: #7ddaf8;
+  background-image: linear-gradient(
+    0deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
   width: 100%;
   height: 100%;
 }
 
 .dark {
   // background: url("../assets/home/dark-background.jpg") !important;
-  background: #222222 !important;
+  background: rgb(43, 45, 72) !important;
+  background: linear-gradient(
+    0deg,
+    rgba(43, 45, 72, 1) 0%,
+    rgba(25, 4, 62, 1) 69%,
+    rgba(10, 10, 10, 1) 100%
+  ) !important;
 }
 
 .wrapper {
@@ -190,7 +202,13 @@ export default {
 .info-container {
   transform: translateZ(0) scale(1);
   z-index: 8;
-  background: #3e4067;
+  background: rgb(62, 64, 103);
+  background: linear-gradient(
+    180deg,
+    rgba(62, 64, 103, 1) 0%,
+    rgba(200, 80, 192, 1) 69%,
+    rgba(255, 204, 112, 1) 100%
+  );
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -205,7 +223,13 @@ export default {
 }
 
 .darkContent {
-  background: #2b2d48;
+  background: rgb(43, 45, 72);
+  background: linear-gradient(
+    180deg,
+    rgba(43, 45, 72, 1) 0%,
+    rgba(25, 4, 62, 1) 69%,
+    rgba(10, 10, 10, 1) 100%
+  );
 }
 
 .darkIntro {
@@ -244,7 +268,13 @@ export default {
   width: 70%;
   margin: 0.5rem 0;
   border-radius: 50%;
-  box-shadow: 0 0 0 5px;
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(255, 24, 134, 1) 11.2%,
+    rgba(252, 232, 68, 1) 52%,
+    rgba(53, 178, 239, 1) 100.2%
+  );
+  padding: 20px;
 }
 
 .info-wrapper h2,

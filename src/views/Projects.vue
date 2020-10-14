@@ -33,19 +33,16 @@
               </div>
               <div class="buttons">
                 <LinkButton
-                  bg="#42cc8c"
                   border="#000000"
                   text="Visit Project"
                   :url="project.link"
                   class="button"
                 />
                 <LinkButton
-                  bg="rgba(0,0,0,0)"
-                  :border="dark ? '#ffffff' : '#000000'"
+                  border="#000000"
                   text="View Source"
                   :url="project.git"
                   class="button"
-                  :color="dark ? '#ffffff' : '#000000'"
                 />
               </div>
             </div>
@@ -53,8 +50,8 @@
         </swiper-slide>
 
         <div class="swiper-pagination" slot="pagination"></div>
-        <!-- <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div> -->
+        <div class="swiper-button-prev swiper-button" slot="button-prev"></div>
+        <div class="swiper-button-next swiper-button" slot="button-next"></div>
       </swiper>
       <div class="loader" v-if="loading">
         <HashLoader :color="loaderColor" />
@@ -135,25 +132,32 @@ export default {
 <style scoped lang="scss">
 #projects {
   // background: url("../assets/home/light-background.png");
-  background: #7ddaf8;
+  background-image: linear-gradient(
+    0deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
   width: 100vw;
   height: 100vh;
 }
 
 .dark {
-  // background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
-  //   linear-gradient(
-  //     to top,
-  //     rgba(255, 255, 255, 0.4) 0%,
-  //     rgba(0, 0, 0, 0.25) 200%
-  //   ) !important;
-
-  background: #222222 !important;
-  // background-blend-mode: multiply;
+  background: rgb(43, 45, 72) !important;
+  background: linear-gradient(
+    0deg,
+    rgba(43, 45, 72, 1) 0%,
+    rgba(25, 4, 62, 1) 69%,
+    rgba(10, 10, 10, 1) 100%
+  ) !important;
   color: white;
   .swiper {
     .slide {
-      background: #263238;
+      background-image: radial-gradient(
+        circle farthest-corner at 10% 20%,
+        rgba(26, 20, 74, 1) 0%,
+        rgba(59, 52, 120, 1) 100.2%
+      );
     }
   }
   .slide {
@@ -178,14 +182,14 @@ export default {
   // display: flex;/* Smartphones (portrait and landscape) ----------- */
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     img {
-      width: 15%;
+      width: 18%;
     }
   }
 
   /* Smartphones (landscape) ----------- */
   @media only screen and (min-width: 321px) {
     img {
-      width: 15%;
+      width: 22%;
     }
   }
 
@@ -256,11 +260,11 @@ export default {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 .swiper {
-  width: 75%;
+  width: 70%;
   margin: 0 auto;
   padding: 50px;
   .slide {
-    background: #fdfcfa;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   }
 }
 
@@ -316,5 +320,12 @@ export default {
 
 .loader {
   color: white;
+}
+
+.swiper-button {
+  z-index: 1000;
+  margin-left: -10px;
+  margin-right: -12px;
+  color: #ffcc70;
 }
 </style>

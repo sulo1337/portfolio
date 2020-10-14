@@ -4,9 +4,7 @@
     target="_blank"
     class="button"
     v-bind:style="{
-      backgroundColor: bg,
-      border: '0.1em solid ' + border,
-      color: color
+      border: '0.1em solid ' + border
     }"
   >
     {{ text }}
@@ -18,21 +16,19 @@ export default {
   name: "LinkButton",
   props: {
     url: String,
-    bg: String,
     border: String,
-    text: String,
-    color: String
+    text: String
   }
 };
 </script>
 
 <style lang="scss">
 .button {
+  font-family: inherit !important;
   display: inline-block;
   padding: 0.46em 1.6em;
   border: 0.1em solid #000000;
   margin: 0 0.2em 0.2em 0;
-  border-radius: 0.12em;
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
@@ -56,5 +52,29 @@ export default {
     display: block;
     margin: 0.4em auto;
   }
+}
+
+.button {
+  background-color: #fa8bff;
+  background-image: linear-gradient(
+    45deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
+}
+.button {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  display: block;
+}
+
+.button:hover {
+  background-position: right center; /* change the direction of the change here */
+  text-decoration: none;
 }
 </style>

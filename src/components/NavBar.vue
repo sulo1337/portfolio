@@ -23,7 +23,5 @@ export default {
 };
 </script>
 
-<style>
-/* #nav-bar {
-} */
+<style lang="scss">
 </style>

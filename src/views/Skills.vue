@@ -63,13 +63,26 @@ export default {
 
 <style lang="scss" scoped>
 #skills {
-  background: #7ddaf8;
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    0deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+
   width: 100vw;
   height: 100vh;
 }
 
 .dark {
-  background: #222222 !important;
+  background: rgb(43, 45, 72) !important;
+  background: linear-gradient(
+    0deg,
+    rgba(43, 45, 72, 1) 0%,
+    rgba(25, 4, 62, 1) 69%,
+    rgba(10, 10, 10, 1) 100%
+  ) !important;
   background-blend-mode: multiply;
   color: white;
 }

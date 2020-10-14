@@ -1,6 +1,10 @@
 <template>
   <div id="nav-button">
-    <div @click="route" :class="{ current: curr == path }" class="wrapper">
+    <div
+      @click="route"
+      :class="{ current: curr == path }"
+      class="wrapper pulse"
+    >
       <h3 class="placeholder heading">{{ text }}</h3>
       <h3 class="mainText heading" :class="{ dark: dark }">{{ text }}</h3>
       <h3 class="hiddenText heading" :class="{ dark: dark }">{{ text }}</h3>
@@ -31,9 +35,14 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .dark {
   color: #fcf75e;
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 adjust-hue(#fcf75e, 45deg);
+    }
+  }
 }
 #nav-button {
   display: inline-block;
@@ -52,11 +61,11 @@ export default {
 }
 
 .current {
-  color: #999;
+  color: #000;
 }
 
 .current .dark {
-  color: #999;
+  color: #fff;
 }
 
 .wrapper {
@@ -87,5 +96,18 @@ export default {
 
 .wrapper:hover .hiddenText {
   top: 0px;
+}
+
+// Animate the size, outside
+.pulse:hover,
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff, 0);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 adjust-hue(#dc143c, 45deg);
+  }
 }
 </style>
