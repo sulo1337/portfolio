@@ -38,13 +38,9 @@ export default {
 <style lang="scss">
 .dark {
   color: #fcf75e;
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 adjust-hue(#fcf75e, 45deg);
-    }
-  }
 }
 #nav-button {
+  background: transparent !important;
   display: inline-block;
   color: #e42600;
   margin-left: 25px;

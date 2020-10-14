@@ -128,7 +128,7 @@ $darken: 10%;
     svg {
       height: 130%;
       width: 130%;
-      transition: 0.1s;
+      transition: 1s;
     }
     svg:hover {
       transform: scale(1.2);

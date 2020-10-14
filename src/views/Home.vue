@@ -93,6 +93,13 @@ export default {
     dark() {
       return this.$store.state.isDark;
     }
+  },
+  beforeCreate: async function() {
+    try {
+      await this.$store.dispatch("fetchProjects");
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 </script>

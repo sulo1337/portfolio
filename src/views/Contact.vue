@@ -4,6 +4,9 @@
       <NavBar curr="Contact" />
     </div>
     <div class="contact__wrapper">
+      <div class="loader" v-if="loading">
+        <HashLoader :color="loaderColor" />
+      </div>
       <div class="blog-slider">
         <div class="blog-slider__wrp swiper-wrapper">
           <div
@@ -23,7 +26,7 @@
             <div class="blog-slider__content">
               <span class="blog-slider__code">{{ project.date }}</span>
               <div class="blog-slider__title">{{ project.name }}</div>
-              <div class="blog-slider__text"></div>
+              <div class="blog-slider__text">{{ project.desc }}</div>
               <a
                 :href="'//' + project.link"
                 target="_blank"
@@ -57,12 +60,15 @@
 import NavBar from "@/components/NavBar.vue";
 import Swiper from "swiper";
 import TechLogo from "@/components/TechLogo.vue";
+import { HashLoader } from "@saeris/vue-spinners";
+
 /* eslint-disable */
 export default {
   components: {
     NavBar,
     Swiper,
-    TechLogo
+    TechLogo,
+    HashLoader
   },
   computed: {
     dark() {
@@ -70,14 +76,25 @@ export default {
     },
     projects() {
       return this.$store.state.projects;
+    },
+    loading() {
+      return this.$store.state.projectLoading;
+    },
+    loaderColor() {
+      if (this.$store.state.isDark) {
+        return "#fcf75e";
+      } else {
+        return "#e42600";
+      }
     }
   },
-  mounted() {
-    this.initSwiper();
-  },
-  beforeMount: async function() {
+  mounted() {},
+  beforeCreate: async function() {
     try {
+      console.log(this.loading);
       await this.$store.dispatch("fetchProjects");
+      console.log(this.loading);
+      this.initSwiper();
     } catch (error) {
       console.log(error);
     }
@@ -122,8 +139,13 @@ export default {
 }
 
 .dark {
-  background: #222222 !important;
-  background-blend-mode: multiply;
+  background: rgb(43, 45, 72) !important;
+  background: linear-gradient(
+    0deg,
+    rgba(43, 45, 72, 1) 0%,
+    rgba(25, 4, 62, 1) 69%,
+    rgba(10, 10, 10, 1) 100%
+  ) !important;
   color: white;
 }
 
@@ -150,6 +172,42 @@ body {
 }
 
 .dark {
+  .blog-slider {
+    background: #111111;
+    &__content {
+      color: white;
+    }
+
+    &__code {
+      color: white;
+    }
+
+    &__title {
+      color: white;
+    }
+
+    &__text {
+      color: white;
+    }
+    &__img {
+      background: #333333;
+      box-shadow: 4px 13px 30px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    &__nav {
+      filter: invert(1);
+    }
+
+    &__button {
+      background-image: radial-gradient(
+        circle farthest-corner at 10% 20%,
+        rgba(90, 92, 106, 1) 0%,
+        rgba(32, 45, 58, 1) 81.3%
+      );
+      box-shadow: 4px 13px 30px 1px rgba(0, 0, 0, 0.3);
+      box-shadow: none;
+    }
+  }
 }
 
 .blog-slider {
@@ -268,7 +326,11 @@ body {
     width: 300px;
     flex-shrink: 0;
     height: 300px;
-    background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgba(253, 203, 50, 1) 0%,
+      rgba(244, 56, 98, 1) 100.2%
+    );
     box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
     border-radius: 20px;
     transform: translateX(-80px);
@@ -403,7 +465,7 @@ body {
     text-align: center;
     letter-spacing: 1px;
     @media screen and (max-width: 576px) {
-      width: 100%;
+      width: 90%;
     }
   }
   .swiper-container-horizontal > .swiper-pagination-bullets,
