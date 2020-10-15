@@ -6,8 +6,10 @@
       class="wrapper pulse"
     >
       <h3 class="placeholder heading">{{ text }}</h3>
-      <h3 class="mainText heading" :class="{ dark: dark }">{{ text }}</h3>
-      <h3 class="hiddenText heading" :class="{ dark: dark }">{{ text }}</h3>
+      <h3 class="mainText heading" :class="{ darkbutton: dark }">{{ text }}</h3>
+      <h3 class="hiddenText heading" :class="{ darkbutton: dark }">
+        {{ text }}
+      </h3>
     </div>
   </div>
 </template>
@@ -36,8 +38,9 @@ export default {
 </script>
 
 <style lang="scss">
-.dark {
+.darkbutton {
   color: #fcf75e !important;
+  background: none !important;
 }
 #nav-button {
   background: transparent !important;
@@ -60,7 +63,7 @@ export default {
   color: #000;
 }
 
-.current .dark {
+.current .darkbutton {
   color: #fff !important;
 }
 

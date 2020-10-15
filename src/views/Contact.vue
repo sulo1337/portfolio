@@ -36,8 +36,13 @@ export default {
   height: 100vh;
 }
 .dark {
-  background: #222222 !important;
-  background-blend-mode: multiply;
+  background: rgb(43, 45, 72) !important;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(12, 16, 20, 1) 69%,
+    rgba(0, 0, 0, 1) 100%
+  ) !important;
   color: white;
 }
 .contact__wrapper {

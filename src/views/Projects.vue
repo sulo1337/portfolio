@@ -215,8 +215,8 @@ body {
       color: white;
     }
     &__img {
-      background: #333333;
-      box-shadow: 4px 13px 30px 1px rgba(0, 0, 0, 0.3);
+      background: #222222;
+      box-shadow: 4px 13px 30px 1px rgba(0, 0, 0, 0.1);
     }
 
     &__nav {
@@ -246,6 +246,18 @@ body {
 }
 
 .blog-slider {
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  animation: fadein;
+  animation-duration: 1s;
   width: 95%;
   position: relative;
   max-width: 875px;
@@ -456,7 +468,7 @@ body {
     > * {
       opacity: 0;
       transform: translateY(25px);
-      transition: all 0.4s;
+      transition: all 0.2s;
     }
     height: 90%;
     overflow: scroll;
@@ -573,8 +585,5 @@ body {
   margin: 20px;
   border-radius: 20px;
   box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
-
-  code {
-  }
 }
 </style>

@@ -114,7 +114,20 @@ $darken: 10%;
 }
 
 .logos__wrapper {
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
   a {
+    animation: fadein;
+    animation-duration: 1s;
     margin: $max-size * 0.1;
     transition: 0.5s ease;
     height: $size;

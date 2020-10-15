@@ -135,6 +135,18 @@ export default {
 }
 
 .wrapper {
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  animation: fadein;
+  animation-duration: 1s;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
@@ -234,8 +246,8 @@ export default {
   background: linear-gradient(
     180deg,
     rgba(43, 45, 72, 1) 0%,
-    rgba(25, 4, 62, 1) 69%,
-    rgba(10, 10, 10, 1) 100%
+    rgba(12, 16, 20, 1) 69%,
+    rgba(0, 0, 0, 1) 100%
   );
 }
 

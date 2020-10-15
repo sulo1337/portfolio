@@ -1,7 +1,7 @@
 <template>
   <div id="app" :class="{ dark: dark }">
     <div id="toggleDark">
-      <ion-icon
+      <!-- <ion-icon
         v-if="dark"
         name="sunny-outline"
         @click="toggleDarkMode"
@@ -15,7 +15,18 @@
         @click="toggleDarkMode"
         class="dayNight"
       >
-      </ion-icon>
+      </ion-icon> -->
+      <div class="toggle toggle--daynight">
+        <input
+          type="checkbox"
+          id="toggle--daynight"
+          class="toggle--checkbox"
+          @click="toggleDarkMode"
+        />
+        <label class="toggle--btn" for="toggle--daynight"
+          ><span class="toggle--feature"></span
+        ></label>
+      </div>
     </div>
     <router-view :key="$route.path"></router-view>
   </div>
@@ -23,6 +34,7 @@
 
 <script>
 /* eslint-disable */
+import "@/assets/toggle.scss";
 export default {
   name: "App",
   computed: {
