@@ -6,10 +6,21 @@
     <div class="skills__wrapper">
       <div id="canvas">
         <div class="logos__wrapper">
-          <a class="rounded" v-for="skill in skills" :key="skill.id">
+          <a
+            class="rounded"
+            v-for="skill in skills"
+            :key="skill.id"
+            href="//www.google.com"
+            target="_blank"
+            :title="
+              //!add title and link to the skill in backend
+              skill.skill
+            "
+          >
             <svg>
               <image
                 :xlink:href="require(`../assets/icons copy/${skill.skill}.svg`)"
+                :title="skill.skill"
               />
             </svg>
           </a>
@@ -85,6 +96,10 @@ export default {
   ) !important;
   background-blend-mode: multiply;
   color: white;
+  .logos__wrapper {
+    background: #111111 !important;
+    box-shadow: none;
+  }
 }
 
 .skills__wrapper {
@@ -124,10 +139,16 @@ $darken: 10%;
       transform: translateY(0px);
     }
   }
-
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(253, 203, 50, 1) 0%,
+    rgba(244, 56, 98, 1) 100.2%
+  );
+  box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
+  border-radius: 20px;
+  animation: fadein;
+  animation-duration: 1s;
   a {
-    animation: fadein;
-    animation-duration: 1s;
     margin: $max-size * 0.1;
     transition: 0.5s ease;
     height: $size;
@@ -135,13 +156,14 @@ $darken: 10%;
     max-width: $max-size;
     max-height: $max-size;
     display: inline-block;
+
     &:hover {
       cursor: pointer;
     }
     svg {
       height: 130%;
       width: 130%;
-      transition: 0.5s;
+      transition: 0.2s;
     }
     svg:hover {
       transform: scale(1.2);

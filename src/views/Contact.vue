@@ -4,7 +4,19 @@
       <NavBar curr="Contact" />
     </div>
     <div class="contact__wrapper">
-      This is contact page. Under construction.
+      <div id="canvas">
+        <div class="img">
+          <svg>
+            <image :xlink:href="require(`../assets/contact/contact.svg`)" />
+          </svg>
+        </div>
+        <div class="content">
+          <div class="heading">Contact Me</div>
+          <div class="form">
+            <input type="text" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -53,5 +65,33 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
+}
+
+#canvas {
+  background-color: white;
+  border-radius: 20px;
+}
+
+.img {
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(253, 203, 50, 1) 0%,
+    rgba(244, 56, 98, 1) 100.2%
+  );
+  box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
+  border-radius: 20px;
+  width: 50%;
+  transform: translate(-80px, 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  margin: auto;
+}
+image {
+  height: 60%;
+  width: 60%;
 }
 </style>

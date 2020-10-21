@@ -1,8 +1,29 @@
 <template>
   <div id="home" :class="{ dark: dark }">
+    <div class="star__wrapper" v-if="dark">
+      <div
+        class="star"
+        v-for="index in 100"
+        :key="index"
+        :style="
+          'animation: twinkle ' +
+            getRandom() +
+            's linear ' +
+            getRandom() +
+            's infinite;' +
+            'top: ' +
+            getRandomHeight() +
+            'px;' +
+            'left: ' +
+            getRandomWidth() +
+            'px;'
+        "
+      ></div>
+    </div>
     <div id="nav">
       <NavBar curr="Home" />
     </div>
+
     <div class="wrapper">
       <div class="parallax__group main-container">
         <div
@@ -92,6 +113,17 @@ export default {
   computed: {
     dark() {
       return this.$store.state.isDark;
+    }
+  },
+  methods: {
+    getRandom() {
+      return 2 + Math.random() * 5;
+    },
+    getRandomHeight() {
+      return Math.random() * window.innerHeight;
+    },
+    getRandomWidth() {
+      return Math.random() * window.innerWidth;
     }
   }
   // beforeCreate: async function() {
@@ -368,5 +400,14 @@ a:visited {
 .introduction {
   text-align: center;
   font-weight: 50;
+}
+
+.star {
+  z-index: 0;
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 5px;
 }
 </style>

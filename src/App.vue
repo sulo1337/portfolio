@@ -122,4 +122,25 @@ export default {
   padding-right: 10px;
   transform: scale(2.5);
 }
+
+@keyframes twinkle {
+  0% {
+    transform: scale(1, 1);
+    background: rgba(255, 255, 255, 0);
+    animation-timing-function: ease-in;
+  }
+  60% {
+    transform: scale(0.8, 0.8);
+    background: rgba(255, 255, 255, 1);
+    animation-timing-function: ease-out;
+  }
+  80% {
+    background: rgba(255, 255, 255, 0);
+    transform: scale(1, 1);
+  }
+  100% {
+    background: rgba(255, 255, 255, 0);
+    transform: scale(1, 1);
+  }
+}
 </style>
