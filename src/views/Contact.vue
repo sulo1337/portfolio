@@ -5,15 +5,56 @@
     </div>
     <div class="contact__wrapper">
       <div id="canvas">
-        <div class="img">
-          <svg>
-            <image :xlink:href="require(`../assets/contact/contact.svg`)" />
-          </svg>
+        <div class="title">
+          Send me a Message
         </div>
-        <div class="content">
-          <div class="heading">Contact Me</div>
-          <div class="form">
-            <input type="text" />
+        <div class="form">
+          <div class="container">
+            <form>
+              <div class="row">
+                <div class="col-25">
+                  <label for="name">Name</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name.."
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="email">Email</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Your email.."
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="subject">Subject</label>
+                </div>
+                <div class="col-75">
+                  <textarea
+                    id="subject"
+                    name="subject"
+                    placeholder="Write something.."
+                    style="height:200px"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <input type="submit" value="Submit" />
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -23,6 +64,7 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue";
+
 /* eslint-disable */
 export default {
   components: {
@@ -32,6 +74,15 @@ export default {
     dark() {
       return this.$store.state.isDark;
     }
+  },
+  data() {
+    return {
+      formValues: {
+        name: "",
+        email: "",
+        message: ""
+      }
+    };
   }
 };
 </script>
@@ -68,30 +119,101 @@ export default {
 }
 
 #canvas {
-  background-color: white;
+  position: relative;
+  display: flex;
+  background: white;
   border-radius: 20px;
+  padding: 20px;
+  width: 75%;
+  text-align: left;
+  flex-direction: column;
 }
 
-.img {
+.title {
+  display: flex;
+  position: fixed;
+  transform: translate(-50%, -80%);
+  left: 50%;
   background-image: radial-gradient(
     circle farthest-corner at 10% 20%,
     rgba(253, 203, 50, 1) 0%,
     rgba(244, 56, 98, 1) 100.2%
   );
-  box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
   border-radius: 20px;
-  width: 50%;
-  transform: translate(-80px, 20px);
-  display: flex;
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
   align-items: center;
   justify-content: center;
+  height: 100px;
 }
 
-svg {
-  margin: auto;
+input[type="text"],
+select,
+textarea {
+  font-family: inherit;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
 }
-image {
-  height: 60%;
-  width: 60%;
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type="submit"] {
+  display: inline-flex;
+  background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+  padding: 15px 35px;
+  margin: 2px;
+  border-radius: 50px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 1px;
+  float: right;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+}
+
+.container {
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25,
+  .col-75,
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
+  }
 }
 </style>

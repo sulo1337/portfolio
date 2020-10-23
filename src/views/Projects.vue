@@ -515,6 +515,7 @@ body {
       width: 90%;
     }
   }
+
   .swiper-container-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-custom,
   .swiper-pagination-fraction {
