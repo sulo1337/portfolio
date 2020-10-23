@@ -20,28 +20,16 @@ export default new Vuex.Store({
     SET_PROJECTS: (state, projects) => {
       state.projects = projects;
     },
-    FETCH_SKILLS: state => {
-      const apiurl = process.env.VUE_APP_SKILLURL;
-      return new Promise((res, rej) => {
-        axios.get(apiurl)
-          .then(async response => {
-            state.skills = response.data;
-            state.skillLoading = false;
-            res();
-          })
-          .catch(err => {
-            console.log(err);
-            rej(err);
-          })
-      })
+    SET_SKILLS: (state, skills) => {
+      state.skills = skills;
     }
   },
   actions: {
     toggleDarkMode(context) {
       context.commit("TOGGLE_DARK_MODE");
     },
-    fetchSkills(context) {
-      context.commit("FETCH_SKILLS");
+    setSkills(context, skills) {
+      context.commit("SET_SKILLS", skills);
     },
     setProjects(context, projects) {
       context.commit("SET_PROJECTS", projects);

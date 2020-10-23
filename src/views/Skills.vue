@@ -6,7 +6,7 @@
     <div class="skills__wrapper">
       <div class="loader" v-if="loading">
         <HashLoader :color="loaderColor" />
-        <div class="error">
+        <div class="error" v-if="error">
           There is some problem connecting to the API. <br />Please email me @
           <code>s.acharya1337@gmail.com</code> so I can fix it ASAP.
         </div>
@@ -41,7 +41,7 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue";
-// import TechLogo from "@/components/TechLogo.vue";
+import axios from "axios";
 import { HashLoader } from "@saeris/vue-spinners";
 
 export default {
@@ -50,12 +50,16 @@ export default {
     HashLoader
     // TechLogo
   },
+  data() {
+    return {
+      skills: [],
+      error: null,
+      loading: true
+    };
+  },
   computed: {
     dark() {
       return this.$store.state.isDark;
-    },
-    loading() {
-      return this.$store.state.skillLoading;
     },
     loaderColor() {
       if (this.$store.state.isDark) {
@@ -63,16 +67,33 @@ export default {
       } else {
         return "#ffcc70";
       }
-    },
-    skills() {
-      return this.$store.state.skills;
     }
   },
-  beforeMount: async function() {
-    try {
-      await this.$store.dispatch("fetchSkills");
-    } catch (error) {
-      console.log(error);
+  methods: {
+    setSkills(data, error, loading) {
+      this.skills = data;
+      this.error = error;
+      this.loading = loading;
+    }
+  },
+  mounted() {
+    if (this.$store.state.skills.length === 0) {
+      axios({
+        method: "GET",
+        url: process.env.VUE_APP_SKILLURL,
+        timeout: 5000
+      })
+        .then(response => {
+          const data = response.data;
+          this.setSkills(data, null, false);
+          this.$store.dispatch("setSkills", data);
+        })
+        .catch(err => {
+          this.setSkills(null, err, true);
+        });
+    } else {
+      const data = this.$store.state.skills;
+      this.setSkills(data, null, false);
     }
   }
 };
