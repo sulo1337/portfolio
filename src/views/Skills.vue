@@ -4,7 +4,17 @@
       <NavBar curr="Skills" />
     </div>
     <div class="skills__wrapper">
-      <div id="canvas">
+      <div class="loader" v-if="loading">
+        <HashLoader :color="loaderColor" />
+        <div class="error">
+          There is some problem connecting to the API. <br />Please email me @
+          <code>s.acharya1337@gmail.com</code> so I can fix it ASAP.
+        </div>
+      </div>
+      <div id="canvas" v-if="!loading">
+        <div class="title">
+          My Skills
+        </div>
         <div class="logos__wrapper">
           <a
             class="rounded"
@@ -24,9 +34,6 @@
               />
             </svg>
           </a>
-        </div>
-        <div class="loader" v-if="loading">
-          <HashLoader :color="loaderColor" />
         </div>
       </div>
     </div>
@@ -55,7 +62,7 @@ export default {
       if (this.$store.state.isDark) {
         return "#fcf75e";
       } else {
-        return "#e42600";
+        return "#ffcc70";
       }
     },
     skills() {
@@ -96,9 +103,13 @@ export default {
   ) !important;
   background-blend-mode: multiply;
   color: white;
-  .logos__wrapper {
-    background: #111111 !important;
+  #canvas {
+    background: #222222 !important;
     box-shadow: none;
+  }
+  .title {
+    background: #333333;
+    box-shadow: 4px 13px 30px 1px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -117,18 +128,6 @@ $gun: #383940;
 $darken: 10%;
 
 #canvas {
-  padding: $size * 0.2;
-  text-align: center;
-  font-size: 0;
-  margin: 0 auto;
-  width: 30%;
-}
-
-.divider {
-  padding-top: 2rem;
-}
-
-.logos__wrapper {
   @keyframes fadein {
     0% {
       opacity: 0;
@@ -139,15 +138,47 @@ $darken: 10%;
       transform: translateY(0px);
     }
   }
+  animation: fadein;
+  animation-duration: 1s;
+  position: relative;
+  padding: $size * 0.2;
+  text-align: center;
+  font-size: 0;
+  margin: 0 auto;
+  width: 30%;
+  background: #fff;
+  box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
+  border-radius: 20px;
+}
+
+.title {
+  position: absolute;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  transform: translate(-50%, -90%);
+  left: 50%;
   background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
+    circle farthest-corner at -30% -15%,
     rgba(253, 203, 50, 1) 0%,
     rgba(244, 56, 98, 1) 100.2%
   );
-  box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
   border-radius: 20px;
-  animation: fadein;
-  animation-duration: 1s;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  font-size: 20px;
+}
+
+.divider {
+  padding-top: 2rem;
+}
+
+.logos__wrapper {
+  margin-top: 30px;
   a {
     margin: $max-size * 0.1;
     transition: 0.5s ease;
@@ -200,6 +231,28 @@ $darken: 10%;
 }
 .rounded {
   border-radius: 20%;
+}
+
+.loader {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  background-image: radial-gradient(
+    circle 972.6px at 10% 20%,
+    rgba(243, 0, 75, 1) 0%,
+    rgba(255, 93, 75, 1) 90%
+  );
+  color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+  font-size: 20px;
+  box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
 }
 
 /* Smartphones (portrait and landscape) ----------- */

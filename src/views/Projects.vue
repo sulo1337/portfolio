@@ -8,7 +8,7 @@
         <HashLoader :color="loaderColor" />
       </div>
       <div class="error" v-if="error">
-        There is some problem with the Project API. <br />Please email me @
+        There is some problem connecting to the API. <br />Please email me @
         <code>s.acharya1337@gmail.com</code> so I can fix it ASAP.
       </div>
       <div class="blog-slider" v-if="!loading">
@@ -194,7 +194,7 @@ body {
   ) !important;
   color: white;
   .blog-slider {
-    background: #111111;
+    background: #222222;
     box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
       0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
       0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
@@ -215,7 +215,7 @@ body {
       color: white;
     }
     &__img {
-      background: #222222;
+      background: #333333;
       box-shadow: 4px 13px 30px 1px rgba(0, 0, 0, 0.1);
     }
 
@@ -233,7 +233,6 @@ body {
 
     &__button {
       background: #102a43;
-      box-shadow: 4px 13px 30px 1px rgba(0, 0, 0, 0.3);
       box-shadow: none;
     }
 
@@ -374,7 +373,7 @@ body {
     flex-shrink: 0;
     height: 300px;
     background-image: radial-gradient(
-      circle farthest-corner at 10% 20%,
+      circle farthest-corner at -15% -15%,
       rgba(253, 203, 50, 1) 0%,
       rgba(244, 56, 98, 1) 100.2%
     );
@@ -585,6 +584,7 @@ body {
   padding: 20px;
   margin: 20px;
   border-radius: 20px;
+  font-size: 20px;
   box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
 }
 </style>

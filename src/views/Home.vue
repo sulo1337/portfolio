@@ -67,7 +67,7 @@
 
           <div class="text-container">
             <h1 class="text">Sulochan Acharya</h1>
-            <h3 class="text">Computer Science Senior</h3>
+            <h3 class="text">FullStack Developer</h3>
             <h3 class="introduction text">
               I am a inquisitive, energetic Computer Science student skilled in
               leadership, with a strong foundation in math, and programming
