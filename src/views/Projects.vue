@@ -94,11 +94,6 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      if (!this.loading) this.initSwiper();
-    }, 1);
-  },
-  beforeRouteEnter(to, from, next) {
     axios({
       method: "GET",
       url: process.env.VUE_APP_PROJECTURL,
@@ -106,15 +101,16 @@ export default {
     })
       .then(response => {
         const data = response.data;
-        next(vm => vm.setProjects(data, null, false));
+        this.setProjects(data, null, false);
+        setTimeout(() => {
+          this.initSwiper();
+        }, 1);
       })
       .catch(err => {
-        next(vm => vm.setProjects(null, err, true));
+        this.setProjects(null, err, true);
       });
   },
-  beforeRouteUpdate(to, from, next) {
-    return;
-  },
+
   methods: {
     setProjects(data, error, loading) {
       console.log(error);
