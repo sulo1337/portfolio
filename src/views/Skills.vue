@@ -29,7 +29,7 @@
           >
             <svg>
               <image
-                :xlink:href="require(`../assets/icons copy/${skill.skill}.svg`)"
+                :xlink:href="require(`../assets/icons/${skill.skill}.svg`)"
                 :title="skill.skill"
               />
             </svg>

@@ -21,9 +21,7 @@
             <div class="blog-slider__img">
               <a class="rounded" v-for="tech in project.tech" :key="tech">
                 <svg>
-                  <image
-                    :xlink:href="require(`../assets/icons copy/${tech}.svg`)"
-                  />
+                  <image :xlink:href="require(`../assets/icons/${tech}.svg`)" />
                 </svg>
               </a>
             </div>
