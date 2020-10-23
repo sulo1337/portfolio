@@ -4,7 +4,30 @@
       <NavBar curr="Contact" />
     </div>
     <div class="contact__wrapper">
-      <div id="canvas">
+      <div class="loader" v-if="sending">
+        <HashLoader :color="loaderColor" />
+        <div class="message info">Sending...</div>
+      </div>
+      <div v-if="sent">
+        <div class="message success" v-if="!error">
+          Message sent successfully, I will reach out to you shortly.
+          <br />
+          <small
+            >Please reload the page if you want to send another message.</small
+          >
+        </div>
+        <div class="message error" v-if="error">
+          Uh Oh! Looks like there is some problem communicating with the server.
+          <br />
+          <br />
+          You can contact me via:
+          <br />
+          Email: s.acharya1337@gmail.com
+          <br />
+          Phone: (318)-557-8273
+        </div>
+      </div>
+      <div id="canvas" v-if="!sending && !sent">
         <div class="title">
           Contact Me
         </div>
@@ -21,7 +44,7 @@
                     id="name"
                     name="name"
                     placeholder="Your name.."
-                    v-model="name"
+                    v-model="formData.name"
                     :class="{ danger: nameDanger }"
                   />
                 </div>
@@ -36,7 +59,7 @@
                     id="email"
                     name="email"
                     placeholder="Where can I reach you back?.."
-                    v-model="email"
+                    v-model="formData.email"
                     :class="{ danger: emailDanger }"
                   />
                 </div>
@@ -52,13 +75,13 @@
                     name="message"
                     placeholder="Write something or email me at s.acharya1337@gmail.com..."
                     style="height:200px"
-                    v-model="message"
+                    v-model="formData.message"
                     :class="{ danger: msgDanger }"
                   ></textarea>
                 </div>
               </div>
               <div class="row">
-                <div class="button" v-on:click="handleSubmit">Submit</div>
+                <div class="button" v-on:click="handleSubmit">Send</div>
               </div>
             </form>
           </div>
@@ -70,54 +93,82 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue";
+import { HashLoader } from "@saeris/vue-spinners";
+import axios from "axios";
 /* eslint-disable */
 export default {
   components: {
-    NavBar
+    NavBar,
+    HashLoader
   },
   computed: {
     dark() {
       return this.$store.state.isDark;
+    },
+    loaderColor() {
+      if (this.$store.state.isDark) {
+        return "#fcf75e";
+      } else {
+        return "#ffcc70";
+      }
     }
   },
   data() {
     return {
-      name: "",
-      email: "",
-      message: "",
+      formData: {
+        name: "",
+        email: "",
+        message: ""
+      },
       nameDanger: false,
       emailDanger: false,
-      msgDanger: false
+      msgDanger: false,
+      sending: false,
+      sent: false,
+      error: false
     };
   },
   methods: {
     handleSubmit() {
       if (!this.isValid()) return;
-      console.log(this.name);
-      console.log(this.email);
-      console.log(this.message);
+      this.sending = true;
+      axios({
+        method: "POST",
+        url: process.env.VUE_APP_CONTACTURL,
+        timeout: 15000,
+        data: this.formData
+      })
+        .then(response => {
+          this.sent = true;
+          this.sending = false;
+        })
+        .catch(error => {
+          this.sent = true;
+          this.error = true;
+          this.sending = false;
+        });
     },
     isValid() {
       var valid = true;
       this.nameDanger = false;
       this.emailDanger = false;
       this.msgDanger = false;
-      if (!this.name) {
+      if (!this.formData.name) {
         this.nameDanger = true;
         valid = false;
       }
-      if (!this.email) {
+      if (!this.formData.email) {
         this.emailDanger = true;
         valid = false;
       }
-      if (this.email) {
+      if (this.formData.email) {
         var re = /\S+@\S+\.\S+/;
-        if (!re.test(this.email)) {
+        if (!re.test(this.formData.email)) {
           this.emailDanger = true;
           valid = false;
         }
       }
-      if (!this.message) {
+      if (!this.formData.message) {
         this.msgDanger = true;
         valid = false;
       }
@@ -178,6 +229,10 @@ export default {
   }
   .button {
     background: #102a43;
+    box-shadow: none;
+  }
+  .success {
+    background: green;
     box-shadow: none;
   }
 }
@@ -289,6 +344,36 @@ label {
   content: "";
   display: table;
   clear: both;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.message {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+  font-size: 20px;
+}
+.error {
+  background-image: radial-gradient(
+    circle 972.6px at 10% 20%,
+    rgba(243, 0, 75, 1) 0%,
+    rgba(255, 93, 75, 1) 90%
+  );
+  color: white;
+  text-align: left;
+  box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
+}
+
+.success {
+  background: greenyellow;
+  color: black;
+  box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
 }
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */

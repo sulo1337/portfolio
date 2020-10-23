@@ -20,17 +20,16 @@
             class="rounded"
             v-for="skill in skills"
             :key="skill.id"
-            href="//www.google.com"
+            :href="'//' + skill.link"
             target="_blank"
             :title="
               //!add title and link to the skill in backend
-              skill.skill
+              skill.title
             "
           >
             <svg>
               <image
                 :xlink:href="require(`../assets/icons/${skill.skill}.svg`)"
-                :title="skill.skill"
               />
             </svg>
           </a>
