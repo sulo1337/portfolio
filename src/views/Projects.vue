@@ -94,26 +94,34 @@ export default {
     }
   },
   mounted() {
-    axios({
-      method: "GET",
-      url: process.env.VUE_APP_PROJECTURL,
-      timeout: 2000
-    })
-      .then(response => {
-        const data = response.data;
-        this.setProjects(data, null, false);
-        setTimeout(() => {
-          this.initSwiper();
-        }, 1);
+    if (this.$store.state.projects.length === 0) {
+      axios({
+        method: "GET",
+        url: process.env.VUE_APP_PROJECTURL,
+        timeout: 5000
       })
-      .catch(err => {
-        this.setProjects(null, err, true);
-      });
+        .then(response => {
+          const data = response.data;
+          this.setProjects(data, null, false);
+          this.$store.dispatch("setProjects", data);
+          setTimeout(() => {
+            this.initSwiper();
+          }, 1);
+        })
+        .catch(err => {
+          this.setProjects(null, err, true);
+        });
+    } else {
+      const data = this.$store.state.projects;
+      this.setProjects(data, null, false);
+      setTimeout(() => {
+        this.initSwiper();
+      }, 1);
+    }
   },
 
   methods: {
     setProjects(data, error, loading) {
-      console.log(error);
       this.projects = data;
       this.error = error;
       this.loading = loading;
