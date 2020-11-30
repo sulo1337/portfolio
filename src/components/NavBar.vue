@@ -4,6 +4,7 @@
       <NavButton :curr="curr" text="Home" path="Home" />
       <NavButton :curr="curr" text="Projects" path="Projects" />
       <NavButton :curr="curr" text="Skills" path="Skills" />
+      <NavButton :curr="curr" text="Resume" path="Resume" />
       <NavButton :curr="curr" text="Contact" path="Contact" />
     </div>
   </div>
@@ -15,11 +16,11 @@ import NavButton from "@/components/NavButton.vue";
 export default {
   name: "NavBar",
   props: {
-    curr: String
+    curr: String,
   },
   components: {
-    NavButton
-  }
+    NavButton,
+  },
 };
 </script>
 

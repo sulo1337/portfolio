@@ -32,6 +32,13 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: Contact
+  },
+  {
+    path: "/resume",
+    name: "Resume",
+    beforeEnter(to, from, next) {
+      window.location = "http://sulochanacharya.com/Resume.pdf"
+    }
   }
 ];
 

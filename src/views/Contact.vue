@@ -28,9 +28,7 @@
         </div>
       </div>
       <div id="canvas" v-if="!sending && !sent">
-        <div class="title">
-          Contact Me
-        </div>
+        <div class="title">Contact Me</div>
         <div class="form">
           <div class="container">
             <form>
@@ -74,7 +72,7 @@
                     id="message"
                     name="message"
                     placeholder="Write something or email me at s.acharya1337@gmail.com..."
-                    style="height:200px"
+                    style="height: 200px"
                     v-model="formData.message"
                     :class="{ danger: msgDanger }"
                   ></textarea>
@@ -99,7 +97,7 @@ import axios from "axios";
 export default {
   components: {
     NavBar,
-    HashLoader
+    HashLoader,
   },
   computed: {
     dark() {
@@ -111,21 +109,21 @@ export default {
       } else {
         return "#ffcc70";
       }
-    }
+    },
   },
   data() {
     return {
       formData: {
         name: "",
         email: "",
-        message: ""
+        message: "",
       },
       nameDanger: false,
       emailDanger: false,
       msgDanger: false,
       sending: false,
       sent: false,
-      error: false
+      error: false,
     };
   },
   methods: {
@@ -136,13 +134,13 @@ export default {
         method: "POST",
         url: process.env.VUE_APP_CONTACTURL,
         timeout: 15000,
-        data: this.formData
+        data: this.formData,
       })
-        .then(response => {
+        .then((response) => {
           this.sent = true;
           this.sending = false;
         })
-        .catch(error => {
+        .catch((error) => {
           this.sent = true;
           this.error = true;
           this.sending = false;
@@ -173,8 +171,8 @@ export default {
         valid = false;
       }
       return valid;
-    }
-  }
+    },
+  },
 };
 </script>
 
