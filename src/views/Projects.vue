@@ -26,7 +26,9 @@
               </a>
             </div>
             <div class="blog-slider__content">
-              <span class="blog-slider__code">{{ project.date }}</span>
+              <span class="blog-slider__code">{{
+                project.date.substring(0, 7)
+              }}</span>
               <div class="blog-slider__title">{{ project.name }}</div>
               <div class="blog-slider__text">{{ project.desc }}</div>
               <a
@@ -72,13 +74,13 @@ export default {
     NavBar,
     Swiper,
     TechLogo,
-    HashLoader
+    HashLoader,
   },
   data() {
     return {
       projects: [],
       error: null,
-      loading: true
+      loading: true,
     };
   },
   computed: {
@@ -91,16 +93,16 @@ export default {
       } else {
         return "#ffcc70";
       }
-    }
+    },
   },
   mounted() {
     if (this.$store.state.projects.length === 0) {
       axios({
         method: "GET",
         url: process.env.VUE_APP_PROJECTURL,
-        timeout: 5000
+        timeout: 5000,
       })
-        .then(response => {
+        .then((response) => {
           const data = response.data;
           this.setProjects(data, null, false);
           this.$store.dispatch("setProjects", data);
@@ -108,7 +110,7 @@ export default {
             this.initSwiper();
           }, 1);
         })
-        .catch(err => {
+        .catch((err) => {
           this.setProjects(null, err, true);
         });
     } else {
@@ -139,16 +141,16 @@ export default {
         // autoHeight: true,
         pagination: {
           el: ".blog-slider__pagination",
-          clickable: true
+          clickable: true,
         },
         navigation: {
           nextEl: ".blog-slider__next",
-          prevEl: ".blog-slider__prev"
-        }
+          prevEl: ".blog-slider__prev",
+        },
       });
       swiper.init();
-    }
-  }
+    },
+  },
 };
 </script>
 
