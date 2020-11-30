@@ -67,26 +67,36 @@
 
           <div class="text-container">
             <h1 class="text">Sulochan Acharya</h1>
-            <h3 class="text">FullStack Developer</h3>
+            <h3 class="text">Software Developer</h3>
             <h3 class="introduction text">
-              I am a inquisitive, energetic Computer Science student skilled in
-              leadership, with a strong foundation in math, and programming
-              logic. I am seeking to leverage my skills with a focus on
-              collaboration, communication, passion, and creativity as a
+              I am an energetic Computer Science senior graduating in May 2021.
+              I am skilled in software development, with a strong foundation in
+              math, and programming logic. I am seeking to leverage my skills
+              with a focus on collaboration, passion, and creativity as a
               software engineer or web developer.
               <br />
-              <a href="https://www.linkedin.com/in/sulo1337/" target="_blank"
+              <a
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/sulo1337/"
+                target="_blank"
                 ><ion-icon name="logo-linkedin" class="social"></ion-icon
               ></a>
-              <a href="https://github.com/sulo1337" target="_blank"
+              <a
+                rel="noopener noreferrer"
+                href="https://github.com/sulo1337"
+                target="_blank"
                 ><ion-icon name="logo-github" class="social"></ion-icon
               ></a>
               <a
+                rel="noopener noreferrer"
                 href="https://www.facebook.com/sulochan.acharya"
                 target="_blank"
                 ><ion-icon name="logo-facebook" class="social"></ion-icon
               ></a>
-              <a href="https://www.instagram.com/sulo1337/" target="_blank"
+              <a
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/sulo1337/"
+                target="_blank"
                 ><ion-icon name="logo-instagram" class="social"></ion-icon
               ></a>
             </h3>
@@ -105,7 +115,7 @@ export default {
   name: "Home",
   components: {
     NavBar,
-    Intro
+    Intro,
   },
   data: () => {
     return {};
@@ -113,7 +123,7 @@ export default {
   computed: {
     dark() {
       return this.$store.state.isDark;
-    }
+    },
   },
   methods: {
     getRandom() {
@@ -124,8 +134,8 @@ export default {
     },
     getRandomWidth() {
       return Math.random() * window.innerWidth;
-    }
-  }
+    },
+  },
   // beforeCreate: async function() {
   //   try {
   //     await this.$store.dispatch("fetchProjects");

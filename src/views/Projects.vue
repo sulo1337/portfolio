@@ -106,7 +106,6 @@ export default {
           this.$store.dispatch("setProjects", data);
           setTimeout(() => {
             this.initSwiper();
-            console.log(data);
           }, 1);
         })
         .catch(err => {
